@@ -12,6 +12,6 @@ $data = json_encode($curl->response, JSON_PRETTY_PRINT);
 
 file_put_contents('daily-vaccinations.json', $data);
 
-echo "saved data\n";
+echo time() . "saved data\n";
 
 ?>
