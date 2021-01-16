@@ -7,7 +7,9 @@ $dotenv->load();
 // $twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 $twitter = new Twitter($_ENV['TWITTER_CONSUMER_KEY'], $_ENV['TWITTER_CONSUMER_SECRET'], $_ENV['TWITTER_ACCESS_TOKEN'], $_ENV['TWITTER_ACCESS_SECRET']);
 
-$totalDoses 		= 93099;
+$data = json_decode(file_get_contents('daily-vaccinations.json'));
+
+$totalDoses 		= $data[0]->total_doses_cumulative;
 $totalDosesRequired = 4920343;
 $totalDosesPretty   = number_format($totalDoses);
 
