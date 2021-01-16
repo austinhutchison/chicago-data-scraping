@@ -9,15 +9,14 @@ $twitter = new Twitter($_ENV['TWITTER_CONSUMER_KEY'], $_ENV['TWITTER_CONSUMER_SE
 
 $data = json_decode(file_get_contents('daily-vaccinations.json'));
 
-$totalDoses 		= $data[0]->total_doses_cumulative;
-$totalDosesRequired = 4920343;
-$totalDosesPretty   = number_format($totalDoses);
+$totalDoses			= $data[0]->total_doses_cumulative;
+$totalDosesRequired	= 4920343;
+$totalDosesPretty	= number_format($totalDoses);
 
-$progress 	    = round($totalDoses / $totalDosesRequired,3);
+$progress		= round($totalDoses / $totalDosesRequired,3);
 $progressPretty = $progress * 100;
 
 $barFilled = ceil($progress * 40);
-
 $progressBar = str_repeat("▓", $barFilled) . str_repeat("░", 40 - $barFilled);
 
 $message = "💉 Chicago Vaccination progress: $progressPretty%
