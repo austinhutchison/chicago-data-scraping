@@ -1,2 +1,5 @@
 #ignore logs
 *.txt
+
+#environment
+.env
