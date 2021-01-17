@@ -9,6 +9,7 @@ $curl->get('https://data.cityofchicago.org/resource/2vhs-cf6b.json');
 echo "received data\n";
 
 if($curl->error) {
+	# socrata servers go down, chicago data portal goes down https://status.socrata.com/
 	die("curl error\n");
 }
 else {
