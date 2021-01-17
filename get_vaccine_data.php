@@ -8,10 +8,15 @@ $curl->get('https://data.cityofchicago.org/resource/2vhs-cf6b.json');
 
 echo "received data\n";
 
-$data = json_encode($curl->response, JSON_PRETTY_PRINT);
+if($curl->error) {
+	die("curl error");
+}
+else {
+	$data = json_encode($curl->response, JSON_PRETTY_PRINT);
 
-file_put_contents('daily-vaccinations.json', $data);
+	file_put_contents('daily-vaccinations.json', $data);
 
-echo time() . "\t saved data\n";
+	echo time() . "\t saved data\n";
+}
 
 ?>
