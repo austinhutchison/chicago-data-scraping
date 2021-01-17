@@ -9,7 +9,7 @@ $curl->get('https://data.cityofchicago.org/resource/2vhs-cf6b.json');
 echo "received data\n";
 
 if($curl->error) {
-	die("curl error");
+	die("curl error\n");
 }
 else {
 	$data = json_encode($curl->response, JSON_PRETTY_PRINT);
