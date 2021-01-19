@@ -21,10 +21,12 @@ $progressBar = str_repeat("▓", $barFilled) . str_repeat("░", 40 - $barFilled
 
 $message = "💉 Chicago Vaccination progress: $progressPretty%
 
-$totalDosesPretty doses administered
-";
+$totalDosesPretty doses administered 
+$progressBar
 
-$message .= $progressBar;
+#COVID #CovidVaccine";
+
+echo $message . "\n";
 
 $twitter->send($message);
 
