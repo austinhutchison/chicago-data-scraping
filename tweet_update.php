@@ -13,6 +13,17 @@ $totalDoses			= $data[0]->total_doses_cumulative;
 $totalDosesRequired	= 4920343;
 $totalDosesPretty	= number_format($totalDoses);
 
+//trailing average
+$days = 7;
+$trailingTotal = 0;
+foreach($data as $i => $day) {
+	$trailingTotal += $data[$i]->total_doses_daily;
+	if($i == $days - 1) {
+		break;
+	}
+}
+$trailingAvg = round($trailingTotal / $days);
+
 $progress		= round($totalDoses / $totalDosesRequired,3);
 $progressPretty = $progress * 100;
 
@@ -21,13 +32,14 @@ $progressBar = str_repeat("▓", $barFilled) . str_repeat("░", 40 - $barFilled
 
 $message = "💉 Chicago Vaccination progress: $progressPretty%
 
-$totalDosesPretty doses administered 
+$totalDosesPretty doses administered
+$trailingAvg 
 $progressBar
 
 #COVID #CovidVaccine";
 
 echo $message . "\n";
 
-$twitter->send($message);
+#$twitter->send($message);
 
 ?>
