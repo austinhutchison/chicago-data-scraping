@@ -41,7 +41,8 @@ $progressBar
 
 echo $message . "\n";
 
-$response = $twitter->request('https://api.twitter.com/1.1/statuses/update.json','POST',['media_ids' => "1363195261124825097", 'status' => $message]);
+// $response = $twitter->request('https://api.twitter.com/1.1/statuses/update.json','POST',['media_ids' => "1363195261124825097", 'status' => $message]);
+$response = $twitter->request('media/upload','GET', ['command' => 'STATUS', 'media_id' => '1363200929189740545']);
 // $response = $twitter->request('https://upload.twitter.com/1.1/media/upload.json','POST',[],['media' => "image.png"]);
 // $response = $twitter->send($message, array("image.png"));
 print_r($response);
