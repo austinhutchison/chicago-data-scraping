@@ -41,6 +41,6 @@ $progressBar
 
 echo $message . "\n";
 
-$twitter->send($message);
+// $twitter->send($message);
 
 ?>
