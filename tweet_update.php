@@ -30,7 +30,7 @@ $progressPretty = $progress * 100;
 $barFilled = ceil($progress * 40);
 $progressBar = str_repeat("▓", $barFilled) . str_repeat("░", 40 - $barFilled);
 
-$message = "💉 Chicago Vaccination progress: $progressPretty%
+$message = "@test 3 💉 Chicago Vaccination progress: $progressPretty%
 
 $totalDosesPretty doses administered
 $trailingAvg per day (7 day average)
@@ -41,6 +41,7 @@ $progressBar
 
 echo $message . "\n";
 
-// $twitter->send($message);
+$response = $twitter->send($message, array("image.png"));
+print_r($response);
 
 ?>
