@@ -13,7 +13,8 @@ if($curl->error) {
 	die("curl error\n");
 }
 else {
-	$data = json_encode($curl->response, JSON_PRETTY_PRINT);
+	$response = array_reverse($curl->response); 
+	$data = json_encode($response, JSON_PRETTY_PRINT);
 
 	file_put_contents('daily-vaccinations.json', $data);
 
