@@ -25,7 +25,7 @@ else {
 }
 
 function dateSort($a, $b) {
-	return  strtotime($a->date) - strtotime($b->date);
+	return  strtotime($b->date) - strtotime($a->date);
 }
 
 ?>
