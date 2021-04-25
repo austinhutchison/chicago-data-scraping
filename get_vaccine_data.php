@@ -13,12 +13,19 @@ if($curl->error) {
 	die("curl error\n");
 }
 else {
-	$response = array_reverse($curl->response); 
+	$response = $curl->response;
+
+	usort($response, 'dateSort'); 
+
 	$data = json_encode($response, JSON_PRETTY_PRINT);
 
 	file_put_contents('daily-vaccinations.json', $data);
 
 	echo time() . "\t saved data\n";
+}
+
+function dateSort($a, $b) {
+	return  strtotime($a->date) - strtotime($b->date);
 }
 
 ?>
