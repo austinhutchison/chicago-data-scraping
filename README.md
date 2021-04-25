@@ -5,3 +5,6 @@ Chicago has a great data portal. It does sometimes backfill information. This gi
 - Requires the php-curl-class which is not included here
 - the output of this effort and other curation is being saved to a public [Notion page](https://www.notion.so/Vaccinate-Chicago-afe76107601841a4a0884c73e2da39a9)
 - follow the twitter bot [@VaccinateChi](https://twitter.com/vaccinatechi) 
+
+### Issue report
+- 🚨 Starting around April 20th the data source became less reliable in the formatting of the data. this caused several days of inaccurate tweets being generated.
